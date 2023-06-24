@@ -1,0 +1,166 @@
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+.container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px; /* Add optional padding as per your design */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+body {
+  padding: 40px;
+  font: 80%/2 Frutiger LT Std, sans-serif;
+}
+
+nav {
+  position: relative;
+  z-index: 3;
+  padding-left: 1em;
+}
+
+.tab {
+  position: relative;
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+  padding: 0.3em 1em 0;
+  margin: 0 -0.1em;
+  transition: none;
+  z-index: 2;
+}
+
+.tab::before,
+.main {
+  border: 0.1em solid rgba(0, 0, 0, 0.4);
+}
+
+.tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -3;
+  border-bottom: none;
+  border-radius: 0.5em 0.5em 0 0;
+  background: white linear-gradient(hsla(0, 0%, 100%, 0.6), hsla(0, 0%, 100%, 0));
+  box-shadow: 0 0.15em white inset;
+  transform: scale(1.1, 1.3) perspective(0.5em) rotateX(5deg);
+  transform-origin: bottom;
+}
+
+.tab.selected {
+  z-index: 3;
+  transform: none;
+}
+
+.tab.selected::before {
+  background-color: #005F68;
+  margin-bottom: -0.08em;
+  color:blue;
+}
+.tab1 {
+  z-index: 1;
+}
+
+
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%; 
+}
+
+.box {
+
+  flex: none;
+  width: 100%; 
+}
+
+
+.box {
+  border: 1px solid black;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 7px;
+}
+
+.box:nth-last-child(-n+2) {
+  flex-basis: calc(25% - 14px); 
+}
+
+
+.row,.row-1 {
+  flex: 1;
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+  color:blue;
+}
+.row{
+  background-color:white;
+
+}
+.row-1 {
+  background-color: #87CEEB;
+  color: white;
+  padding: 1%;
+  height:auto;
+}
+
+
+nav.left > .tab::before {
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(10deg);
+  transform-origin: bottom left;
+}
+
+nav.right {
+  padding-left: 2em;
+  justify-content: flex-start;
+
+}
+
+
+nav.right > .tab::before {
+  transform: scale(1.2, 1.3) perspective(0.5em) rotateX(5deg);
+  transform-origin: bottom right;
+}
+.box {
+  border: 1px solid black;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 7px;
+  width: calc(100% / 2 - 14px); 
+}
+
+@media (min-width: 768px) {
+
+  .box {
+    width: calc(100% / 4 - 14px);
+  }
+  .row-1 {
+    padding: 10px;
+    height: 50px;
+  }
+  
+}
